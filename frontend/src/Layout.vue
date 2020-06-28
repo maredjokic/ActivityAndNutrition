@@ -13,6 +13,11 @@
         <v-icon>mdi-login</v-icon>
       </v-btn>
     </router-link></a>
+    <!-- <a><router-link v-bind:to="'/Prijava'" exact>
+      <v-btn medium text class="ma-2" color="white">
+        <v-icon>mdi-logout</v-icon>
+      </v-btn>
+    </router-link></a> -->
     <a><router-link v-bind:to="'/Registracija'" exact>
       <v-btn medium text class="ma-2" color="white">
         <v-icon>mdi-account-plus</v-icon>

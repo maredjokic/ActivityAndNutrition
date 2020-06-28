@@ -25,11 +25,25 @@
             </div>
             <div v-show="item.tab === 'Ishrana'">
                 <v-data-table
+                dark
                 :headers="headers"
                 :items="desserts"
                 :items-per-page="5"
                 class="elevation-1"
-              ></v-data-table>
+              >
+                    <template v-slot:item.name="{ item }">
+                        <v-chip color="primary" dark>{{ item.name }}</v-chip>
+                    </template>
+                    <template v-slot:item.calories="{ item }">
+                        <v-chip color="gray" dark>{{ item.calories }}</v-chip>
+                    </template>
+                    <template v-slot:item.amount="{ }">
+                        <v-text-field type="number" hide-details single-line value=0></v-text-field>
+                    </template>
+                    <template v-slot:item.add="{ }">
+                        <v-btn color="success" x-small fab dark><v-icon medium>mdi-plus</v-icon></v-btn>
+                    </template>
+              </v-data-table>
             </div>
           </v-card>
         </v-tab-item>
@@ -87,7 +101,9 @@ export default {
                 { text: 'Fat (g)', value: 'fat' },
                 { text: 'Carbs (g)', value: 'carbs' },
                 { text: 'Protein (g)', value: 'protein' },
-                { text: 'Iron (%)', value: 'iron' }
+                { text: 'Iron (%)', value: 'iron' },
+                { text: 'Amount (g)', value: 'amount' },
+                { text: 'Add', value: 'add' }
             ],
             desserts:
             [

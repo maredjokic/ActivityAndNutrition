@@ -4,9 +4,7 @@
   <v-app-bar absolute short app color="primary">
     <v-app-bar-nav-icon @click="drawer = !drawer" ></v-app-bar-nav-icon>
     <v-spacer></v-spacer>
-    <v-icon class="mb-1 mr-1">mdi-run</v-icon>
     <b>ACTIVITY AND NUTRITION</b>
-    <v-icon class="mb-1 ml-1">mdi-food-apple-outline</v-icon>
     <v-spacer></v-spacer>
     <a><router-link v-bind:to="'/Prijava'" exact>
       <v-btn medium text class="ma-2" color="white">

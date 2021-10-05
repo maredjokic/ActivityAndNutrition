@@ -8,8 +8,6 @@
 
 export default {
     name: 'Trcanje',
-    computed: {
-    },
     data () {
         return {
         };

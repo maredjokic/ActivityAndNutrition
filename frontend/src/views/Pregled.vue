@@ -14,8 +14,6 @@ export default {
         return {
         };
     },
-    components: {
-    },
     mounted: function () {
     },
     methods: {

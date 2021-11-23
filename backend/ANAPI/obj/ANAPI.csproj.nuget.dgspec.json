@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mare\\Desktop\\Diplomski najnovija verzija\\ActivityAndNutrition\\backend\\ANAPI\\ANAPI.csproj": {}
+    "/home/mare/master/ActivityAndNutrition/backend/ANAPI/ANAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mare\\Desktop\\Diplomski najnovija verzija\\ActivityAndNutrition\\backend\\ANAPI\\ANAPI.csproj": {
+    "/home/mare/master/ActivityAndNutrition/backend/ANAPI/ANAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mare\\Desktop\\Diplomski najnovija verzija\\ActivityAndNutrition\\backend\\ANAPI\\ANAPI.csproj",
+        "projectUniqueName": "/home/mare/master/ActivityAndNutrition/backend/ANAPI/ANAPI.csproj",
         "projectName": "ANAPI",
-        "projectPath": "C:\\Users\\Mare\\Desktop\\Diplomski najnovija verzija\\ActivityAndNutrition\\backend\\ANAPI\\ANAPI.csproj",
-        "packagesPath": "C:\\Users\\Mare\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mare\\Desktop\\Diplomski najnovija verzija\\ActivityAndNutrition\\backend\\ANAPI\\obj\\",
+        "projectPath": "/home/mare/master/ActivityAndNutrition/backend/ANAPI/ANAPI.csproj",
+        "packagesPath": "/home/mare/.nuget/packages/",
+        "outputPath": "/home/mare/master/ActivityAndNutrition/backend/ANAPI/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Mare\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/mare/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -38,6 +35,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -56,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
         }
       }
     }

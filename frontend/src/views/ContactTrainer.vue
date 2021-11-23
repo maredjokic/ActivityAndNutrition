@@ -1,13 +1,14 @@
 <template>
   <div>
-    Trcanje strana
+    <v-card>
+    </v-card>
   </div>
 </template>
 
 <script>
 
 export default {
-    name: 'Trcanje',
+    name: 'ContactTrainer',
     computed: {
     },
     data () {

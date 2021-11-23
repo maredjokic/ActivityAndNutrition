@@ -1,9 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Pocetna from '../views/Pocetna.vue';
-import Pregled from '../views/Pregled.vue';
-import Trcanje from '../views/Trcanje.vue';
-import PlanTrcanja from '../views/PlanTrcanja.vue';
+import CreatePlan from '../views/CreatePlan.vue';
+import MyPlan from '../views/MyPlan.vue';
 import Prijava from '../views/Prijava.vue';
 import Registracija from '../views/Registracija.vue';
 
@@ -11,25 +9,14 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path: '/',
-        name: 'Pocetna',
-        component: Pocetna
+        path: '/createplan',
+        name: CreatePlan,
+        component: CreatePlan
     },
     {
-        path: '/Pregled',
-        name: Pregled,
-        component: Pregled
-    },
-    {
-        path: '/Trcanje',
-        name: 'Trcanje',
-        component: Trcanje
-
-    },
-    {
-        path: '/PlanTrcanja',
-        name: PlanTrcanja,
-        component: PlanTrcanja
+        path: '/myplan',
+        name: MyPlan,
+        component: MyPlan
     },
     {
         path: '/Prijava',

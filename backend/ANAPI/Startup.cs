@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ANAPI.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ANAPI
 {
@@ -26,6 +28,9 @@ namespace ANAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<DataContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,9 +43,19 @@ namespace ANAPI
 
             app.UseHttpsRedirection();
 
+            app.UseCors(builder => builder
+				.AllowAnyOrigin()
+				.AllowAnyMethod()
+				.AllowAnyHeader()
+    			.AllowCredentials());
+
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {

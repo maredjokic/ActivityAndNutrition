@@ -1,20 +1,17 @@
 <template>
   <div>
-    <v-card>
-    </v-card>
+    Trcanje strana
   </div>
 </template>
 
 <script>
 
 export default {
-    name: 'ContactTrainer',
-    computed: {
-    },
+    name: 'Trcanje',
     data () {
         return {
         };
-    },
+    }
     mounted: function () {
     }
 };

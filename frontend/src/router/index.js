@@ -4,6 +4,7 @@ import CreatePlan from '../views/CreatePlan.vue';
 import MyPlan from '../views/MyPlan.vue';
 import Prijava from '../views/Prijava.vue';
 import Registracija from '../views/Registracija.vue';
+import StepperPlan from '../views/StepperPlan.vue';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
         path: '/Registracija',
         name: Registracija,
         component: Registracija
+    },
+    {
+        path: '/StepperPlan',
+        name: StepperPlan,
+        component: StepperPlan
     }
 //   {
 //     path: '/about',

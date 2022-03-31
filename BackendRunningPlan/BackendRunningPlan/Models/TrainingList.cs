@@ -1,9 +1,8 @@
 ﻿namespace BackendRunningPlan.Models
 {
-    public class Training
+    public class TrainingList
     {
         string id { get; set; }
-        List<RunningTraining> RunningTrainings { get; set; }
-        List<StrengthTraining> StrengthTrainings { get; set; }
+        List<Training> Trainings { get; set; }
     }
 }

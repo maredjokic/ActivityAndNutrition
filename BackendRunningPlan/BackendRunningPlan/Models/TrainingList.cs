@@ -2,7 +2,8 @@
 {
     public class TrainingList
     {
-        string id { get; set; }
-        List<Training> Trainings { get; set; }
+        public string Id { get; set; }
+        public string Description { get; set; }
+        public List<TrainingDay> TrainingDays { get; set; }
     }
 }

@@ -1,9 +1,12 @@
-﻿namespace BackendRunningPlan.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BackendRunningPlan.Models
 {
     public class TrainingList
     {
-        public string Id { get; set; }
-        public string Description { get; set; }
-        public List<TrainingDay> TrainingDays { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int? Id { get; set; }
+        public string? Description { get; set; } = string.Empty;
+        public List<TrainingDay>? TrainingDays { get; set; }
     }
 }

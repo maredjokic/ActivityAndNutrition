@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BackendRunningPlan.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackendRunningPlan.Controllers
 {
@@ -7,15 +8,100 @@ namespace BackendRunningPlan.Controllers
     [Route("[controller]")]
     public class PersonalCoachController : Controller
     {
-        [HttpGet(Name = "GetPersonalCoach")]
-        public IEnumerable<PersonalCoach> Get()
+        private readonly DatabaseContext _context;
+
+        public PersonalCoachController(DatabaseContext context)
         {
-            List<PersonalCoach> coachList = new List<PersonalCoach>();
+            _context = context;
+        }
 
-            coachList.Add(new Models.PersonalCoach() { Id = 1, Name = "Marko Djokic", Username = "MarkoDjokic", Password = "mare"});
-            coachList.Add(new Models.PersonalCoach() { Id = 2, Name = "Valentina Nejkovic", Username = "ValentinaNejkovic", Password = "mare" });
+        [HttpGet(Name = "GetPersonalCoach")]
+        public async Task<ActionResult<List<PersonalCoach>>> GetPersonalCoaches()
+        {
+            return await _context.PersonalCoaches.ToListAsync();
+        }
 
-            return coachList;
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PersonalCoach>> GetPersonalCoach(int id)
+        {
+            var coach = await _context.PersonalCoaches.FindAsync(id);
+
+            if (coach == null)
+            {
+                return NotFound();
+            }
+
+            return coach;
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<PersonalCoach>> Post(PersonalCoach personalCoach)
+        {
+            var personalCoachNew = new PersonalCoach
+            {
+                Name = personalCoach.Name,
+                Username = personalCoach.Username,
+                Password = personalCoach.Password
+            };
+
+            _context.PersonalCoaches.Add(personalCoachNew);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(
+                nameof(GetPersonalCoach),
+                new { id = personalCoachNew.Id },
+                personalCoach);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCoach(int id, PersonalCoach personalCoachChanged)
+        {
+            if (id != personalCoachChanged.Id)
+            {
+                return BadRequest();
+            }
+
+            var personalCoach = await _context.PersonalCoaches.FindAsync(id);
+            if (personalCoach == null)
+            {
+                return NotFound();
+            }
+
+            personalCoach.Name = personalCoachChanged.Name;
+            personalCoach.Username = personalCoachChanged.Username;
+            personalCoach.Password = personalCoachChanged.Password;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException) when (!PersonalCoachExists(id))
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePersonalCoach(int id)
+        {
+            var personalCoach = await _context.PersonalCoaches.FindAsync(id);
+
+            if (personalCoach == null)
+            {
+                return NotFound();
+            }
+
+            _context.PersonalCoaches.Remove(personalCoach);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool PersonalCoachExists(int id)
+        {
+            return _context.PersonalCoaches.Any(e => e.Id == id);
         }
     }
 }

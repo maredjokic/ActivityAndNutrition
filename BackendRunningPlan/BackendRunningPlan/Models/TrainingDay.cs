@@ -6,10 +6,10 @@ namespace BackendRunningPlan.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int? Id { get; set; }
-        public string? Number { get; set; }
+        public int? Number { get; set; }
         public DateTime DateTime { get; set; }
         public List<Training>? Trainings { get; set; }
-        public TrainingList? TrainingList { get; set; }
-        public int? TrainingListId { get; set; }
+        public TrainingPlan? TrainingList { get; set; }
+        public int? TrainingPlanId { get; set; }
     }
 }

@@ -11,6 +11,6 @@ namespace BackendRunningPlan
         public DbSet<PersonalCoach> PersonalCoaches { get; set; } = null!;
         public DbSet<TrainingDay> TrainingDays { get; set; } = null!;
         public DbSet<Training> Trainings { get; set; } = null!;
-        public DbSet<TrainingList> TrainingList { get; set; } = null!;
+        public DbSet<TrainingPlan> TrainingPlans { get; set; } = null!;
     }
 }

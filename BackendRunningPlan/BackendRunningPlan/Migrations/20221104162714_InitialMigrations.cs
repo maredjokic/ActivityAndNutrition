@@ -26,16 +26,20 @@ namespace BackendRunningPlan.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TrainingList",
+                name: "TrainingPlans",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Type = table.Column<string>(type: "text", nullable: true),
+                    Level = table.Column<int>(type: "integer", nullable: true),
+                    DurationInWeeks = table.Column<int>(type: "integer", nullable: true),
+                    StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     Description = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TrainingList", x => x.Id);
+                    table.PrimaryKey("PK_TrainingPlans", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,17 +67,17 @@ namespace BackendRunningPlan.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Number = table.Column<string>(type: "text", nullable: true),
+                    Number = table.Column<int>(type: "integer", nullable: true),
                     DateTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    TrainingListId = table.Column<int>(type: "integer", nullable: true)
+                    TrainingPlanId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TrainingDays", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TrainingDays_TrainingList_TrainingListId",
-                        column: x => x.TrainingListId,
-                        principalTable: "TrainingList",
+                        name: "FK_TrainingDays_TrainingPlans_TrainingPlanId",
+                        column: x => x.TrainingPlanId,
+                        principalTable: "TrainingPlans",
                         principalColumn: "Id");
                 });
 
@@ -99,9 +103,9 @@ namespace BackendRunningPlan.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_TrainingDays_TrainingListId",
+                name: "IX_TrainingDays_TrainingPlanId",
                 table: "TrainingDays",
-                column: "TrainingListId");
+                column: "TrainingPlanId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Trainings_TrainingDayId",
@@ -124,7 +128,7 @@ namespace BackendRunningPlan.Migrations
                 name: "TrainingDays");
 
             migrationBuilder.DropTable(
-                name: "TrainingList");
+                name: "TrainingPlans");
         }
     }
 }

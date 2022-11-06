@@ -82,20 +82,20 @@ namespace BackendRunningPlan.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Number")
-                        .HasColumnType("text");
+                    b.Property<int?>("Number")
+                        .HasColumnType("integer");
 
-                    b.Property<int?>("TrainingListId")
+                    b.Property<int?>("TrainingPlanId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TrainingListId");
+                    b.HasIndex("TrainingPlanId");
 
                     b.ToTable("TrainingDays");
                 });
 
-            modelBuilder.Entity("BackendRunningPlan.Models.TrainingList", b =>
+            modelBuilder.Entity("BackendRunningPlan.Models.TrainingPlan", b =>
                 {
                     b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
@@ -106,9 +106,21 @@ namespace BackendRunningPlan.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
+                    b.Property<int?>("DurationInWeeks")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("Level")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
-                    b.ToTable("TrainingList");
+                    b.ToTable("TrainingPlans");
                 });
 
             modelBuilder.Entity("BackendRunningPlan.Models.User", b =>
@@ -156,9 +168,9 @@ namespace BackendRunningPlan.Migrations
 
             modelBuilder.Entity("BackendRunningPlan.Models.TrainingDay", b =>
                 {
-                    b.HasOne("BackendRunningPlan.Models.TrainingList", "TrainingList")
+                    b.HasOne("BackendRunningPlan.Models.TrainingPlan", "TrainingList")
                         .WithMany("TrainingDays")
-                        .HasForeignKey("TrainingListId");
+                        .HasForeignKey("TrainingPlanId");
 
                     b.Navigation("TrainingList");
                 });
@@ -168,7 +180,7 @@ namespace BackendRunningPlan.Migrations
                     b.Navigation("Trainings");
                 });
 
-            modelBuilder.Entity("BackendRunningPlan.Models.TrainingList", b =>
+            modelBuilder.Entity("BackendRunningPlan.Models.TrainingPlan", b =>
                 {
                     b.Navigation("TrainingDays");
                 });

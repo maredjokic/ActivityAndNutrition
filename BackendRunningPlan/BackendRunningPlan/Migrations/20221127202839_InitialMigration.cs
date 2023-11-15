@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace BackendRunningPlan.Migrations
 {
-    public partial class InitialMigrations : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,11 +54,17 @@ namespace BackendRunningPlan.Migrations
                     Weight = table.Column<double>(type: "double precision", nullable: true),
                     Height = table.Column<double>(type: "double precision", nullable: true),
                     Age = table.Column<int>(type: "integer", nullable: true),
-                    Gender = table.Column<string>(type: "text", nullable: true)
+                    Gender = table.Column<string>(type: "text", nullable: true),
+                    PersonalCoachId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Users_PersonalCoaches_PersonalCoachId",
+                        column: x => x.PersonalCoachId,
+                        principalTable: "PersonalCoaches",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -111,13 +117,15 @@ namespace BackendRunningPlan.Migrations
                 name: "IX_Trainings_TrainingDayId",
                 table: "Trainings",
                 column: "TrainingDayId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_PersonalCoachId",
+                table: "Users",
+                column: "PersonalCoachId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "PersonalCoaches");
-
             migrationBuilder.DropTable(
                 name: "Trainings");
 
@@ -126,6 +134,9 @@ namespace BackendRunningPlan.Migrations
 
             migrationBuilder.DropTable(
                 name: "TrainingDays");
+
+            migrationBuilder.DropTable(
+                name: "PersonalCoaches");
 
             migrationBuilder.DropTable(
                 name: "TrainingPlans");

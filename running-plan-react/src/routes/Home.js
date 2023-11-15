@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import TrainingPlan from './../components/TrainingPlan';
 
 function Home() {
     return (
       <div>
-        <h1>This is the home page</h1>
+        <TrainingPlan />
       </div>
     );
   }

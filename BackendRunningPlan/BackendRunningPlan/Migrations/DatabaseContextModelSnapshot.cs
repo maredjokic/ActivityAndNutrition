@@ -146,6 +146,9 @@ namespace BackendRunningPlan.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("text");
 
+                    b.Property<int?>("PersonalCoachId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Username")
                         .HasColumnType("text");
 
@@ -153,6 +156,8 @@ namespace BackendRunningPlan.Migrations
                         .HasColumnType("double precision");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PersonalCoachId");
 
                     b.ToTable("Users");
                 });
@@ -173,6 +178,20 @@ namespace BackendRunningPlan.Migrations
                         .HasForeignKey("TrainingPlanId");
 
                     b.Navigation("TrainingList");
+                });
+
+            modelBuilder.Entity("BackendRunningPlan.Models.User", b =>
+                {
+                    b.HasOne("BackendRunningPlan.Models.PersonalCoach", "PersonalCoach")
+                        .WithMany("User")
+                        .HasForeignKey("PersonalCoachId");
+
+                    b.Navigation("PersonalCoach");
+                });
+
+            modelBuilder.Entity("BackendRunningPlan.Models.PersonalCoach", b =>
+                {
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BackendRunningPlan.Models.TrainingDay", b =>

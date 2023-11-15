@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\master\\ActivityAndNutrition\\BackendRunningPlan\\BackendRunningPlan\\BackendRunningPlan.csproj": {}
+    "C:\\ActivityAndNutrition\\BackendRunningPlan\\BackendRunningPlan\\BackendRunningPlan.csproj": {}
   },
   "projects": {
-    "C:\\master\\ActivityAndNutrition\\BackendRunningPlan\\BackendRunningPlan\\BackendRunningPlan.csproj": {
+    "C:\\ActivityAndNutrition\\BackendRunningPlan\\BackendRunningPlan\\BackendRunningPlan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\master\\ActivityAndNutrition\\BackendRunningPlan\\BackendRunningPlan\\BackendRunningPlan.csproj",
+        "projectUniqueName": "C:\\ActivityAndNutrition\\BackendRunningPlan\\BackendRunningPlan\\BackendRunningPlan.csproj",
         "projectName": "BackendRunningPlan",
-        "projectPath": "C:\\master\\ActivityAndNutrition\\BackendRunningPlan\\BackendRunningPlan\\BackendRunningPlan.csproj",
-        "packagesPath": "C:\\Users\\Mare\\.nuget\\packages\\",
-        "outputPath": "C:\\master\\ActivityAndNutrition\\BackendRunningPlan\\BackendRunningPlan\\obj\\",
+        "projectPath": "C:\\ActivityAndNutrition\\BackendRunningPlan\\BackendRunningPlan\\BackendRunningPlan.csproj",
+        "packagesPath": "C:\\Users\\Marko\\.nuget\\packages\\",
+        "outputPath": "C:\\ActivityAndNutrition\\BackendRunningPlan\\BackendRunningPlan\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Mare\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Marko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,7 +88,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -97,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
